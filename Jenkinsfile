@@ -26,7 +26,8 @@ pipeline {
         success {
         slackSend channel: '#jenkins',
               color: 'good',
-              message: "The pipeline ${currentBuild.fullDisplayName} completed successfully."
+              message: "The pipeline ${currentBuild.fullDisplayName} completed successfully.",
+              tokenCredentialId: Sk6C6y5kr9Uc0C00mgQWvtAD
         }
         failure {
             echo 'This will run only if failed'
