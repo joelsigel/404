@@ -13,15 +13,15 @@ pipeline {
             }
         }
         stage('Test') {
-          steps {
-              sh './gradlew check'
-          }
+            steps {
+                sh 'echo "Testing..."'
+            }
         }
     }
 
     post {
         always {
-            junit 'build/reports/**/*.xml'
+            echo 'This will always run'
         }
         success {
             echo 'This will run only if successful'
