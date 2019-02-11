@@ -24,9 +24,7 @@ pipeline {
 
     post {
         always {
-          slackSend channel: '#jenkins',
-            color: 'danger',
-            message: "The pipeline ${currentBuild.fullDisplayName} has requested to queue a new job."
+
         }
         success {
           slackSend channel: '#jenkins',
