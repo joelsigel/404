@@ -24,20 +24,29 @@ pipeline {
 
     post {
         always {
-            echo 'This will always run'
+          slackSend channel: '#jenkins',
+            color: 'danger',
+            message: "The pipeline ${currentBuild.fullDisplayName} has requested to queue a new job."
         }
         success {
-            slackSend color: 'good', message: 'Message from Jenkins Pipeline'
+          slackSend channel: '#jenkins',
+            color: 'good',
+            message: "The pipeline ${currentBuild.fullDisplayName} was built successfully."
         }
         failure {
-            echo 'This will run only if failed'
+          slackSend channel: '#jenkins',
+            color: 'danger',
+            message: "The pipeline ${currentBuild.fullDisplayName} has failed."
         }
         unstable {
-            echo 'This will run only if the run was marked as unstable'
+          slackSend channel: '#jenkins',
+            color: 'danger',
+            message: "The pipeline ${currentBuild.fullDisplayName} is unstable."
         }
         changed {
-            echo 'This will run only if the state of the Pipeline has changed'
-            echo 'For example, if the Pipeline was previously failing but is now successful'
+          slackSend channel: '#jenkins',
+            color: 'warning',
+            message: "The pipeline ${currentBuild.fullDisplayName} has branch changes."
         }
     }
 
