@@ -12,11 +12,6 @@ pipeline {
                 sh 'echo "Building..."'
             }
         }
-        stage('Test') {
-            steps {
-                sh 'echo "Testing..."'
-            }
-        }
     }
 
     post {
