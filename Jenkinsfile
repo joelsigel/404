@@ -24,9 +24,7 @@ pipeline {
             echo 'This will always run'
         }
         success {
-        slackSend channel: '#jenkins',
-              color: 'good',
-              message: "The pipeline ${currentBuild.fullDisplayName} completed successfully."
+            slackSend color: 'good', message: 'Message from Jenkins Pipeline'
         }
         failure {
             echo 'This will run only if failed'
