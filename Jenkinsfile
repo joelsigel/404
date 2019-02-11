@@ -24,7 +24,7 @@ pipeline {
 
     post {
         always {
-
+              sh 'echo "Always display this message..."'
         }
         success {
           slackSend channel: '#jenkins',
