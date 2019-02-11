@@ -10,6 +10,9 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'echo "Building..."'
+                slackSend channel: '#jenkins',
+                  color: 'good',
+                  message: "The pipeline ${currentBuild.fullDisplayName} is building..."
             }
         }
         stage('Test') {
