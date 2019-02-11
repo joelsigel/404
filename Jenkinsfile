@@ -1,7 +1,11 @@
 pipeline {
-    agent {
-        docker { image 'node:7-alpine' }
+    agent any
+
+    environment {
+        DISABLE_AUTH = 'true'
+        DB_ENGINE    = 'sqlite'
     }
+
     stages {
         stage('Build') {
             steps {
@@ -18,6 +22,7 @@ pipeline {
             }
         }
     }
+
     post {
         always {
             echo 'This will always run'
@@ -36,4 +41,5 @@ pipeline {
             echo 'For example, if the Pipeline was previously failing but is now successful'
         }
     }
+    
 }
