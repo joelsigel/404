@@ -15,6 +15,14 @@ pipeline {
                   message: "The pipeline ${currentBuild.fullDisplayName} is building..."
             }
         }
+        stage('Example Deploy') {
+            when {
+                branch 'master'
+            }
+            steps {
+                sh 'echo "Deploying..."'
+            }
+        }
         stage('Test') {
             steps {
                 sh 'echo "Testing..."'
