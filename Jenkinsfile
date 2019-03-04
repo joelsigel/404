@@ -15,7 +15,7 @@ pipeline {
                   message: "The pipeline ${currentBuild.fullDisplayName} is building..."
             }
         }
-        stage('Example Deploy') {
+        stage('Deploy') {
             when {
                 branch 'master'
             }
